@@ -1,189 +1,119 @@
+# jquery
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile Website with jQuery Mobile</title>
-    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-    <style>
-        #submitted-data {
-            padding: 10px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-            margin-top: 10px;
-            border-radius: 5px;
-        }
-        #submitted-data h2 {
-            margin-top: 0;
-        }
-        .field-label {
-            font-weight: bold;
-        }
-    </style>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <title>jQuery Mobile Navbar with Icons</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
 </head>
+<!-- <script>
+  $(document).on("pagecontainershow", function(event, ui) {
+    var pageName = ui.toPage.attr("id");
+    alert("You are on " + pageName);
+  });
+</script> -->
 <body>
+<!-- Homepage -->
+<div data-role="page" id="home">
+  <header data-role="header" data-theme="b">
+    <h1>Mile Tracker</h1>
+  </header>
 
-<!-- Home Page -->
-<div data-role="page" id="home-page">
+  <div data-role="navbar">
+    <ul>
+      <li><a href="#home" data-icon="home" data-transition="slide">Home</a></li>
+      <li><a href="#add" data-icon="plus" data-transition="slide">ADD</a>
+      </li>
+      <li><a href="#widgets" data-icon="arrow" data-transition="slide">Stats</a></li>
+      <!-- <li><a href="#" data-icon="star">Favorites</a></li> -->
+      <!-- <li><a href="#add" data-icon="plus">Add</a></li> -->
+    </ul>
+  </div>
 
-    <div data-role="header" data-position="fixed">
-        <h1>Welcome</h1>
-        <a href="#menu-panel" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-icon-notext ui-corner-all" data-iconpos="notext">Menu</a>
-    </div><!-- /header -->
+  <div data-role="main" class="ui-content">
+    <h3>Welcome to Mile Tracker</h3>
+    <p>Track your running and Jogging details in this app</p>
+    <h3>Your Latest Runs</h3>
+    <ul id="stats" data-role="list-view" data-filter="true" data-filter-placeholder="Search Runs" data-inset="true">
+    </ul>
+    <ul data-role="listview" data-inset="true" data-theme="b">
+        <li>Run1</li>
+        <li>Run12</li>
+        <li>Run13</li>
+    </ul>
+    <br>
+    <button id="clearruns"  data-theme="b">ClearRuns</button>
+  </div>
 
-    <div role="main" class="ui-content">
-        <p>This is the home page content.</p>
-        <a href="#about-page" class="ui-btn ui-btn-b">About Us</a>
-        <a href="#contact-page" class="ui-btn ui-btn-b">Contact Us</a>
+  <footer data-role="footer" data-theme="b">
+    <h4>Miletracker &copy;</h4>
+  </footer>
+</div>
 
-        <h2>Featured Products</h2>
-        <ul id="product-list" data-role="listview" data-inset="true">
-            <!-- Dynamic content will be loaded here -->
+<!-- AddPage -->
+
+
+  <div data-role="page" id="add">
+    <header data-role="header" data-theme="b">
+      <h1>Mile Tracker</h1>
+    </header>
+  
+    <div data-role="navbar">
+        <ul>
+          <li><a href="#home" data-icon="home" data-transition="slide">Home</a></li>
+          <li><a href="#add" data-icon="plus" data-transition="slide">ADD</a>
+          </li>
+          <li><a href="#widgets" data-icon="arrow" data-transition="slide">Stats</a></li>
+          <!-- <li><a href="#" data-icon="star">Favorites</a></li> -->
+          <!-- <li><a href="#add" data-icon="plus">Add</a></li> -->
         </ul>
-    </div><!-- /content -->
+      </div>
+  
+    <div data-role="main" class="ui-content">
+      <form id="add-form">
+        <label for="addmiles">Enter Miles:</label>
+        <input type="text" id="addmiles">
+        <label for="AddDate">Enter AddDate:</label>
+        <input type="text" id="AddDate" data-role="date" class="date" data-inline="true">
+        <button id="submitadd" class="ui-btn ui-btn-b ui-btn-corner-all">Submit</button>
+      </form>
+    </div>
+    
+  
+    <footer data-role="footer" data-theme="b">
+      <h4>Miletracker &copy;</h4>
+    </footer>
+  </div>
+  <!-- widgetpage -->
+  <div data-role="page" id="widgets">
+    <header data-role="header" data-theme="b">
+        <h1>Mile Tracker</h1>
+      </header>
+      <div data-role="navbar">
+          <ul>
+            <li><a href="#home" data-icon="home" data-transition="slide">Home</a></li>
+            <li><a href="#add" data-icon="plus" data-transition="slide">ADD</a>
+            </li>
+            <li><a href="#widgets" data-icon="arrow" data-transition="slide">Stats</a></li>
+            <!-- <li><a href="#" data-icon="star">Favorites</a></li> -->
+            <!-- <li><a href="#add" data-icon="plus">Add</a></li> -->
+          </ul>
+        </div>
+    <div>
+      <h2 style="text-align: center;">Layout Widgets</h2>
+    </div>
 
-    <div data-role="footer" data-position="fixed">
-        <h4>© 2024 Mobile Website</h4>
-    </div><!-- /footer -->
+    <ul data-role="listview" data-inset="true">
+      <li ><a href="#">Running Stats</a></li>
+      <li ><a href="#">Monthly Stats</a></li>
+      <li ><a href="#">Recovery</a></li>
+    </ul>
+    
+  </div>
 
-    <!-- Navigation Panel -->
-    <div data-role="panel" id="menu-panel" data-display="overlay" data-theme="b">
-        <ul data-role="listview">
-            <li><a href="#home-page">Home</a></li>
-            <li><a href="#about-page">About Us</a></li>
-            <li><a href="#contact-page">Contact Us</a></li>
-        </ul>
-    </div><!-- /panel -->
 
-    <script>
-        // Simulated dynamic product data
-        var products = [
-            { name: "Product 1", description: "Description of Product 1." },
-            { name: "Product 2", description: "Description of Product 2." },
-            { name: "Product 3", description: "Description of Product 3." }
-        ];
-
-        // Function to dynamically generate product list items
-        function generateProductList() {
-            var productList = $('#product-list');
-            productList.empty();
-            $.each(products, function(index, product) {
-                productList.append('<li><a href="#product-page" data-product="' + index + '">' + product.name + '</a></li>');
-            });
-            productList.listview('refresh');
-        }
-
-        // Event listener for product clicks
-        $(document).on('click', '#product-list a', function() {
-            var productId = $(this).data('product');
-            var product = products[productId];
-            $('#product-page h2').text(product.name);
-            $('#product-page p').text(product.description);
-        });
-
-        // Generate product list on page load
-        $(document).on('pagecreate', '#home-page', function() {
-            generateProductList();
-        });
-    </script>
-</div><!-- /page -->
-
-<!-- About Page -->
-<div data-role="page" id="about-page">
-
-    <div data-role="header" data-position="fixed">
-        <h1>About Us</h1>
-        <a href="#home-page" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-notext ui-corner-all" data-iconpos="notext">Home</a>
-    </div><!-- /header -->
-
-    <div role="main" class="ui-content">
-        <p>This is the about page content.</p>
-        <a href="#home-page" class="ui-btn ui-btn-b">Back to Home</a>
-    </div><!-- /content -->
-
-    <div data-role="footer" data-position="fixed">
-        <h4>© 2024 Mobile Website</h4>
-    </div><!-- /footer -->
-
-</div><!-- /page -->
-
-<!-- Contact Page -->
-<div data-role="page" id="contact-page">
-
-    <div data-role="header" data-position="fixed">
-        <h1>Contact Us</h1>
-        <a href="#home-page" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-notext ui-corner-all" data-iconpos="notext">Home</a>
-    </div><!-- /header -->
-
-    <div role="main" class="ui-content">
-        <p>This is the contact page content.</p>
-        
-        <!-- Form to submit data -->
-        <form id="contact-form">
-            <div data-role="fieldcontain">
-                <label for="name" class="field-label">Name:</label>
-                <input type="text" name="name" id="name" placeholder="Enter your name">
-            </div>
-            <div data-role="fieldcontain">
-                <label for="email" class="field-label">Email:</label>
-                <input type="email" name="email" id="email" placeholder="Enter your email">
-            </div>
-            <div data-role="fieldcontain">
-                <label for="message" class="field-label">Message:</label>
-                <textarea name="message" id="message" placeholder="Enter your message"></textarea>
-            </div>
-            <button type="submit" class="ui-btn ui-btn-b">Send Message</button>
-        </form>
-
-        <!-- Section to display submitted data -->
-        <div id="submitted-data" style="display: none;"></div>
-    </div><!-- /content -->
-
-    <div data-role="footer" data-position="fixed">
-        <h4>© 2024 Mobile Website</h4>
-    </div><!-- /footer -->
-
-    <script>
-        // Form submission with AJAX
-        $(document).on('submit', '#contact-form', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Get form data
-            var formData = $(this).serializeArray();
-            var submittedData = '<h2>Submitted Data:</h2>';
-
-            // Display submitted data
-            $.each(formData, function(index, field) {
-                submittedData += '<p><span class="field-label">' + field.name + ':</span> ' + field.value + '</p>';
-            });
-            
-            $('#submitted-data').html(submittedData).show();
-        });
-    </script>
-
-</div><!-- /page -->
-
-<!-- Product Page -->
-<div data-role="page" id="product-page">
-
-    <div data-role="header" data-position="fixed">
-        <h1>Product Details</h1>
-        <a href="#home-page" class="ui-btn ui-btn-inline ui-icon-home ui-btn-icon-notext ui-corner-all" data-iconpos="notext">Home</a>
-    </div><!-- /header -->
-
-    <div role="main" class="ui-content">
-        <h2></h2>
-        <p></p>
-        <a href="#home-page" class="ui-btn ui-btn-b">Back to Home</a>
-    </div><!-- /content -->
-
-    <div data-role="footer" data-position="fixed">
-        <h4>© 2024 Mobile Website</h4>
-    </div><!-- /footer -->
-
-</div><!-- /page -->
 
 </body>
 </html>
